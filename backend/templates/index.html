@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votación del Festival</title>
+    <!-- Vinculamos el archivo CSS externo -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h1>BÚNKER DE VOTACIÓN</h1>
+
+    <!-- BATALLA 1 -->
+    <div class="card-batalla">
+        <h2 class="titulo-batalla">Batalla 1</h2>
+        <form action="/votar" method="POST">
+            <!-- Pasamos el ID del dispositivo de prueba de forma fija -->
+            <input type="hidden" name="id_dispositivo" value="celular_test_1">
+            
+            <div class="opciones">
+                <label class="opcion">
+                    <input type="radio" name="id_banda" value="marchi" required>
+                    <span>Marchitorial</span>
+                </label>
+                <label class="opcion">
+                    <input type="radio" name="id_banda" value="cartas">
+                    <span>Cartas a mí</span>
+                </label>
+            </div>
+            <button type="submit">Enviar Voto</button>
+        </form>
+    </div>
+
+    <!-- BATALLA 2 -->
+    <div class="card-batalla">
+        <h2 class="titulo-batalla">Batalla 2</h2>
+        <form action="/votar" method="POST">
+            <input type="hidden" name="id_dispositivo" value="celular_test_1">
+            
+            <div class="opciones">
+                <label class="opcion">
+                    <input type="radio" name="id_banda" value="ficc" required>
+                    <span>Ficciones</span>
+                </label>
+                <label class="opcion">
+                    <input type="radio" name="id_banda" value="ntme">
+                    <span>No te me enojes</span>
+                </label>
+            </div>
+            <button type="submit">Enviar Voto</button>
+        </form>
+    </div>
+
+    <!-- BATALLA 3 -->
+    <div class="card-batalla">
+        <h2 class="titulo-batalla">Batalla 3</h2>
+        <form action="/votar" method="POST">
+            <input type="hidden" name="id_dispositivo" value="celular_test_1">
+            
+            <div class="opciones">
+                <label class="opcion">
+                    <input type="radio" name="id_banda" value="gilda" required>
+                    <span>No me</span>
+                </label>
+                <label class="opcion">
+                    <input type="radio" name="id_banda" value="dinorah">
+                    <span>Acuerdo</span>
+                </label>
+            </div>
+            <button type="submit">Enviar Voto</button>
+        </form>
+    </div>
+
+</body>
+</html>
