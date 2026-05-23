@@ -59,8 +59,8 @@ class Database:
                     id_banda TEXT NOT NULL,
                     id_dispositivo TEXT,
                     FOREIGN KEY (id_batalla, id_banda) 
-                        REFERENCES bandas_participantes(id_batalla, id_banda),
-                    UNIQUE(id_batalla, id_dispositivo) -- <--- ESTA REGLA BLINDA EL SISTEMA
+                        REFERENCES bandas_participantes(id_batalla, id_banda)
+                    -- Aquí ya no va la línea del UNIQUE ni la coma
                 );
             """)
 
