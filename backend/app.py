@@ -1,8 +1,9 @@
 from flask import Flask, request, render_template
 from db_manager import Database
+from waitress import serve
 
 app = Flask(__name__)
-db = Database()
+db = Database() # Instancia la database, lo que la crea e inicializa si no existe.
 
 @app.route('/')
 def index():
@@ -24,5 +25,6 @@ def votar():
         return "<h1>FALLO: La banda no existe o ya votaste (test_device_001 ya tiene voto).</h1><br><a href='/'>Volver</a>"
     
 if __name__ == "__main__":
-    app.run() # ESTO ES UN TEST DE PRUEBA. NO VA A CORRER CON FLASK. VOY A LEVANTAR EL SERVIDOR REMOTO CON WAITRESS.
+    print("Iniciando servidor de producción con Waitress en el puerto 5000...")
+    serve(app, host='0.0.0.0', port=5000)
     
