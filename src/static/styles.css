@@ -1,0 +1,85 @@
+:root {
+    --color-fondo: #f4f2e6;
+    --color-azul: #202082;
+    --color-naranja: #fd521a;
+}
+
+body { 
+    background-color: var(--color-fondo); 
+    color: var(--color-azul); 
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+    margin: 0; 
+    padding: 15px; 
+    display: flex; 
+    justify-content: center; 
+}
+
+.contenedor-principal { max-width: 500px; width: 100%; }
+
+.header-logo { text-align: center; margin-bottom: 20px; }
+.header-logo img { max-width: 180px; height: auto; }
+
+.titulo-bunker { text-align: center; font-size: 1.8rem; margin-bottom: 25px; }
+
+.card-batalla { 
+    background: white; 
+    padding: 20px; 
+    margin-bottom: 20px; 
+    border-radius: 15px; 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08); 
+}
+
+.opcion { 
+    display: flex; 
+    align-items: center; 
+    gap: 12px; 
+    padding: 18px; 
+    margin: 10px 0; 
+    border: 2px solid #eaeaea; 
+    border-radius: 10px; 
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.opcion input { transform: scale(1.2); }
+.opcion.seleccionada { border-color: var(--color-naranja); background: #fff5f0; }
+
+.btn-votar { 
+    background: var(--color-azul); 
+    color: white; 
+    border: none; 
+    padding: 14px; 
+    width: 100%; 
+    margin-top: 15px; 
+    cursor: pointer; 
+    border-radius: 10px; 
+    font-weight: 700;
+    font-size: 1rem;
+    transition: transform 0.1s;
+}
+
+.btn-votar:active { transform: scale(0.98); }
+
+/* Cartel flotante */
+.toast {
+    visibility: hidden;
+    min-width: 280px;
+    background-color: var(--color-naranja);
+    color: white;
+    text-align: center;
+    border-radius: 12px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+    font-weight: 600;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    opacity: 0;
+    transition: opacity 0.3s, bottom 0.3s;
+}
+
+.toast.mostrar { visibility: visible; opacity: 1; bottom: 50px; }
+
+.btn-votar.exito { background-color: #28a745; pointer-events: none; }
