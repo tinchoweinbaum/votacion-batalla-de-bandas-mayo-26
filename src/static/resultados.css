@@ -4,55 +4,105 @@ body {
     margin: 0; padding: 1vw; height: 100vh; box-sizing: border-box;
 }
 
-.contenedor-general { height: 100%; display: flex; flex-direction: column; }
+.contenedor-general { 
+    height: 100%; 
+    display: flex; 
+    flex-direction: column; 
+}
 
-.header-logo { height: 6%; text-align: center; }
-.header-logo img { height: 100%; width: auto; }
+.header-logo { 
+    height: auto; /* Cambiado a auto para que ocupe solo lo necesario */
+    max-height: 20%; /* El límite máximo de altura */
+    text-align: center; 
+    padding-top: 1vh;
+}
+
+.header-logo img { 
+    height: 12vh; /* Tamaño fijo para controlar la escala del logo */
+    width: auto;  
+}
 
 .titulo-principal { 
-    text-align: center; color: #333; margin: 0.5vh 0 2vh 0; font-size: 5vh; font-weight: 800; 
+    text-align: center; 
+    color: #333; 
+    margin: 0.5vh 0 1vh 0; /* Margen superior e inferior reducidos para acercarlo al logo */
+    font-size: 4.5vh; 
+    font-weight: 800; 
 }
 
 .grilla-batallas {
-    display: flex; height: 75%; gap: 1vw; justify-content: center;
+    display: flex; 
+    height: 70%; 
+    gap: 1vw; 
+    justify-content: center;
 }
 
 .card-resultado {
-    background: #FFFDF0; border: 0.3vh solid #004a99; padding: 1.5vh;
-    border-radius: 2vh; box-shadow: 0 1vh 2vh rgba(0,0,0,0.2);
-    flex: 1; display: flex; flex-direction: column;
+    background: #FFFDF0; 
+    border: 0.3vh solid #004a99; 
+    padding: 1.5vh;
+    border-radius: 2vh; 
+    box-shadow: 0 1vh 2vh rgba(0,0,0,0.2);
+    flex: 1; 
+    display: flex; 
+    flex-direction: column;
 }
 
 .header-card { height: 15%; display: flex; align-items: center; justify-content: center; }
 
 .card-resultado h2 {
-    font-size: 2.2vh; text-align: center; color: #004a99;
-    margin: 0; font-weight: 800;
+    font-size: 2.2vh; 
+    text-align: center; 
+    color: #004a99;
+    margin: 0; 
+    font-weight: 800;
 }
 
 .grafico-vertical {
-    display: flex; justify-content: space-around; align-items: flex-end;
-    height: 85%; width: 100%; border-bottom: 0.4vh solid #333;
+    display: flex; 
+    justify-content: space-around; 
+    align-items: flex-end;
+    height: 85%; 
+    width: 100%; 
+    border-bottom: 0.4vh solid #333;
 }
 
 .columna-banda {
-    display: flex; flex-direction: column; align-items: center; width: 40%; height: 100%; justify-content: flex-end;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    width: 40%; 
+    height: 100%; 
+    justify-content: flex-end;
 }
 
 .barra-contenedor {
-    width: 8vw; background: #e0dcc5; border-radius: 1vh 1vh 0 0; 
+    width: 8vw; 
+    background: #e0dcc5; 
+    border-radius: 1vh 1vh 0 0; 
     height: 100%; 
-    display: flex; flex-direction: column-reverse;
+    display: flex; 
+    flex-direction: column-reverse;
 }
 
 .barra-progreso {
-    background: #004a99; width: 100%; height: 0%; border-radius: 1vh 1vh 0 0; transition: height 1.5s ease-out;
+    background: #004a99; 
+    width: 100%; 
+    height: 0%; 
+    border-radius: 1vh 1vh 0 0; 
+    transition: height 0.8s ease-out;
 }
 
 .etiqueta {
-    margin-top: 0.5vh; font-weight: 700; font-size: 1.3vh; text-align: center;
+    margin-top: 0.5vh; 
+    font-weight: 700; 
+    font-size: 1.3vh; 
+    text-align: center;
 }
 
 .contador {
-    font-size: 2vh; font-weight: 800; color: #333; margin-top: 0.2vh;
+    font-size: 2vh; 
+    font-weight: 800; 
+    color: #333; 
+    margin-top: 0.2vh;
 }

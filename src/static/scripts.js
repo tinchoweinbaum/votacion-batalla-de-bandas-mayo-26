@@ -71,7 +71,7 @@ window.onload = () => {
                     boton.classList.add('exito');
                     form.querySelectorAll('input').forEach(i => i.disabled = true);
                 } else if (response.status === 403) {
-                    boton.textContent = "Ya votaste";
+                    boton.textContent = "Ya votaste en esta batalla";
                     boton.classList.add('bloqueado');
                     form.querySelectorAll('input').forEach(i => i.disabled = true);
                 } else {

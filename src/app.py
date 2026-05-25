@@ -13,7 +13,12 @@ def index():
 def votar():
     id_banda = request.form.get('id_banda')
     id_dispositivo = request.form.get('id_dispositivo')
-    print(id_dispositivo)
+
+    # EN TU app.py, DENTRO DE LA RUTA /votar
+    if not id_banda or not id_dispositivo:
+        # CAMBIA ESTA LÍNEA A ESTO:
+        print(f"DEBUG ERROR: Faltan datos. Banda: {id_banda}, Disp: {id_dispositivo}")
+        return jsonify({"status": "error", "message": "Faltan datos."}), 400
     
     if not id_banda or not id_dispositivo:
         return jsonify({"status": "error", "message": "Faltan datos."}), 400
@@ -31,6 +36,11 @@ def estado_votos():
         
     votadas = db.obtener_votos_dispositivo(id_dispositivo)
     return jsonify({"votadas": votadas})
+
+@app.route('/api/resultados')
+def api_resultados():
+    datos = db.obtener_resultados() 
+    return jsonify(datos)
 
 @app.route('/resultados')
 def resultados():

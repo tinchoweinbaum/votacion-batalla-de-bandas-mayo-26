@@ -14,17 +14,20 @@ class Database:
 
     @contextmanager
     def _connect(self):
-        conexion = sqlite3.connect(self.db_path)
+        # 1. Agregamos 'timeout=30': Si la BD está bloqueada, espera hasta 30 seg.
+        # 2. 'check_same_thread=False': Necesario para usar la conexión en hilos (como en tu cola).
+        conexion = sqlite3.connect(self.db_path, timeout=30, check_same_thread=False)
         try:
+            # 3. MODO WAL: Permite lectura y escritura simultánea. ESTO ES LO QUE MÁS NECESITAS.
+            conexion.execute("PRAGMA journal_mode=WAL;")
             conexion.execute("PRAGMA foreign_keys = ON;")
             yield conexion 
             conexion.commit() 
         except sqlite3.Error as error:
             conexion.rollback() 
-            print(f"[DB ERROR] Error en la transacción: {error}")
             raise error
         finally:
-            conexion.close() 
+            conexion.close()
 
     def init_db(self):
         conexion = sqlite3.connect(self.db_path)
