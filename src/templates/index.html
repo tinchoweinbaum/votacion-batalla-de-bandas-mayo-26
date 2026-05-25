@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Votación del Festival</title>
+    <title>Batalla de bandas - 25/5/26</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
@@ -13,13 +13,12 @@
         </div>
         <h1 class="titulo-bunker">¿Quién gana?</h1>
 
-        <div class="card-batalla">
+        <div class="card-batalla" data-batalla="1">
             <h2 class="titulo-batalla">Batalla 1</h2>
             <form action="/votar" method="POST" class="formulario-voto">
-                <input type="hidden" name="id_dispositivo" value="celular_test_1">
                 <div class="opciones">
                     <label class="opcion">
-                        <input type="radio" name="id_banda" value="gilda" required>
+                        <input type="radio" name="id_banda" value="gilda">
                         <span>Gilda manson</span>
                     </label>
                     <label class="opcion">
@@ -27,17 +26,16 @@
                         <span>Dinorah</span>
                     </label>
                 </div>
-                <button type="submit" class="btn-votar">Votar</button>
+                <button type="submit" class="btn-votar">Votar en esta batalla</button>
             </form>
         </div>
-
-        <div class="card-batalla">
+        
+        <div class="card-batalla" data-batalla="2">
             <h2 class="titulo-batalla">Batalla 2</h2>
             <form action="/votar" method="POST" class="formulario-voto">
-                <input type="hidden" name="id_dispositivo" value="celular_test_1">
                 <div class="opciones">
                     <label class="opcion">
-                        <input type="radio" name="id_banda" value="ficc" required>
+                        <input type="radio" name="id_banda" value="ficc">
                         <span>Ficciones</span>
                     </label>
                     <label class="opcion">
@@ -45,17 +43,16 @@
                         <span>No te me enojes</span>
                     </label>
                 </div>
-                <button type="submit" class="btn-votar">Votar</button>
+                <button type="submit" class="btn-votar">Votar en esta batalla</button>
             </form>
         </div>
 
-        <div class="card-batalla">
+        <div class="card-batalla" data-batalla="3">
             <h2 class="titulo-batalla">Batalla 3</h2>
             <form action="/votar" method="POST" class="formulario-voto">
-                <input type="hidden" name="id_dispositivo" value="celular_test_1">
                 <div class="opciones">
                     <label class="opcion">
-                        <input type="radio" name="id_banda" value="marchi" required>
+                        <input type="radio" name="id_banda" value="marchi">
                         <span>Marchitorial</span>
                     </label>
                     <label class="opcion">
@@ -63,10 +60,13 @@
                         <span>Cartas a mí</span>
                     </label>
                 </div>
-                <button type="submit" class="btn-votar">Votar</button>
+                <button type="submit" class="btn-votar">Votar en esta batalla</button>
             </form>
         </div>
     </div>
-    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+    
+    <div id="cartel-alerta" class="toast"></div>
+
+    <script src="../static/scripts.js"></script>
 </body>
 </html>

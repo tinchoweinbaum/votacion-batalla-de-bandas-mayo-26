@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados de Batallas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='resultados.css') }}">
+</head>
+<body>
+    <div class="contenedor-general">
+        <header class="header-logo">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
+        </header>
+
+        <h1 class="titulo-principal">Resultados de Batallas</h1>
+        
+        <div class="grilla-batallas">
+            {% set nombres_batallas = {1: 'Dinorah vs Gilda Manson', 2: 'Ficciones vs No te me enojes', 3: 'Cartas a mí vs Marchitorial'} %}
+            {% set nombres_bandas = {
+                'dinorah': 'Dinorah', 'gilda': 'Gilda Manson', 
+                'ficc': 'Ficciones', 'ntme': 'No te me enojes', 
+                'cartas': 'Cartas a mí', 'marchi': 'Marchitorial'
+            } %}
+            
+            {% for id_batalla, bandas in resultados.items() %}
+            <div class="card-resultado">
+                <div class="header-card">
+                    <h2>{{ nombres_batallas[id_batalla] }}</h2>
+                </div>
+                <div class="grafico-vertical">
+                    {% for b in bandas %}
+                    <div class="columna-banda" data-votos="{{ b.votos }}">
+                        <div class="barra-contenedor">
+                            <div class="barra-progreso"></div>
+                        </div>
+                        <div class="etiqueta">{{ nombres_bandas.get(b.banda | lower, b.banda) }}</div>
+                        <div class="contador">{{ b.votos }}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='resultados.js') }}"></script>
+</body>
+</html>

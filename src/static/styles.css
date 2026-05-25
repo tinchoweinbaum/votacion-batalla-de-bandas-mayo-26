@@ -1,5 +1,5 @@
 :root {
-    --color-fondo: #f4f2e6;
+    --color-fondo: #E8E4C1;
     --color-azul: #202082;
     --color-naranja: #fd521a;
 }
@@ -83,3 +83,4 @@ body {
 .toast.mostrar { visibility: visible; opacity: 1; bottom: 50px; }
 
 .btn-votar.exito { background-color: #28a745; pointer-events: none; }
+.btn-votar.bloqueado { background-color: #ff6767; color: white; pointer-events: none; }
